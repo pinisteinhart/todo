@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Daily summary at 9am Brussels time (UTC+2 summer = 07:00 UTC)
+[[scheduled-functions]]
+  name     = "daily-summary"
+  schedule = "0 7 * * *"
+
+# Due-time reminders — runs every minute
+[[scheduled-functions]]
+  name     = "due-reminder"
+  schedule = "* * * * *"
